@@ -4,6 +4,8 @@ from konlpy.tag import Okt
 import os
 import json
 import nltk
+
+from util.summarize import Summarize
 from lexrankr import LexRank
 
 okt = Okt()
@@ -53,8 +55,29 @@ class SentimentAnalysis(object):
         return self.prediction[5]
 
     def analyze(self, text):
-        token = self.tokenize(text)
-        tf = self.term_frequency(token)
-        data = np.expand_dims(np.asarray(tf).astype('float32'), axis=0)
-        self.prediction = model.predict(data)[0]
+
+        sadness_sum = 0
+        anger_sum = 0
+        anxiety_sum = 0
+        agony_sum = 0
+        embarrassed_sum = 0
+        happiness_sum = 0
+
+        summarized_data = Summarize(text).summarize()
+
+        for text in summarized_data:
+            token = self.tokenize(text)
+            tf = self.term_frequency(token)
+            data = np.expand_dims(np.asarray(tf).astype('float32'), axis=0)
+
+            prediction = model.predict(data)[0]
+
+            sadness_sum += prediction[0]
+            anger_sum += prediction[1]
+            anxiety_sum += prediction[2]
+            agony_sum += prediction[3]
+            embarrassed_sum += prediction[4]
+            happiness_sum += prediction[5]
+
+        self.prediction = [sadness_sum / 5, anger_sum / 5, anxiety_sum / 5, agony_sum / 5, embarrassed_sum / 5, happiness_sum / 5]
         return self.prediction # # 0 >> 슬픔 1 >> 분노 2 >> 불안 3 >> 상처 4 >> 당황 5 >> 기쁨
