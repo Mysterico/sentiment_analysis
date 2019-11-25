@@ -107,5 +107,7 @@ venv.bak/
 .idea/
 
 # setup
+setup
 setup/
+model
 model/
