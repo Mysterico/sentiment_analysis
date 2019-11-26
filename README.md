@@ -44,4 +44,3 @@ negative_score = sentiment_analysis.get_negative_score() # get negative scores
 
 ### Reference)
 1. https://github.com/theeluwin/lexrankr (Korean Lexrank)
-2. https://www.kaggle.com/c/sa-emotions/data# (English data supported)
