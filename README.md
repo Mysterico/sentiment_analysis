@@ -16,7 +16,7 @@ It classifies sentiment as 6 emotions (Depression, Anger, Anxiety, Agony, Embarr
 
 ※ Caution)
 
-This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes English, Japanese, Chinese, and etc. 
+This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes Japanese, Chinese, and etc. 
 
 Getting agony score won't work, if detected language is English. Be careful.
 
