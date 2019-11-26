@@ -12,7 +12,7 @@ It classifies sentiment as 6 emotions (Depression, Anger, Anxiety, Agony, Embarr
 
 ※ Caution)
 
-This library does not support English or other languages now. However, we have a plan to support other languages includes English, Japanese, Chinese, and etc. 
+This library does not support English or other languages yet. However, we have a plan to support other languages includes English, Japanese, Chinese, and etc. 
 
 ## Installation
 `pip install sentiment-analysis`
