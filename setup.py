@@ -18,7 +18,7 @@ requirements = [
 
 setup(
     name="sentiment-analysis",
-    version="1.0.4",
+    version="0.1.4",
     license="MIT",
     author="Philip Kim",
     author_email="philip@mysterico.com",
