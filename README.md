@@ -5,6 +5,10 @@ Lexrank 알고리즘이 사용되었습니다.
 
 해당 라이브러리는 감성을 다음 6가지의 종류로 분류합니다. (우울함, 분노, 불안, 고통, 당황, 행복)
 
+※ 주의)
+
+이 라이브러리는 현재 영어나 다른 언어를 지원하지 않습니다. 추후, 영어, 일어, 중어 및 다른 언어들에 대한 지원을 할 예정입니다.
+
 This library is made for analyzing sentiment from a single sentence or paragraph. It uses Keras and nltk.
 In addition, It also uses LexRank algorithm to summarize a paragraph.
 
