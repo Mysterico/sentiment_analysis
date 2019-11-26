@@ -7,7 +7,7 @@ Lexrank 알고리즘이 사용되었습니다.
 
 ※ 주의)
 
-이 라이브러리는 현재 영어나 다른 언어를 지원하지 않습니다. 추후, 영어, 일어, 중어 및 다른 언어들에 대한 지원을 할 예정입니다.
+이 라이브러리는 한국어와 영어를 제외한 다른 언어를 지원하지 않습니다. 추후, 일어, 중어 및 다른 언어들에 대한 지원을 할 예정입니다.
 
 This library is made for analyzing sentiment from a single sentence or paragraph. It uses Keras and nltk.
 In addition, It also uses LexRank algorithm to summarize a paragraph.
@@ -16,7 +16,7 @@ It classifies sentiment as 6 emotions (Depression, Anger, Anxiety, Agony, Embarr
 
 ※ Caution)
 
-This library does not support English or other languages yet. However, we have a plan to support other languages includes English, Japanese, Chinese, and etc. 
+This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes English, Japanese, Chinese, and etc. 
 
 ## Installation
 `pip install sentiment-analysis`
@@ -36,7 +36,10 @@ happiness_score = sentiment_analysis.get_happiness_score() # get happiness score
 
 total_score = sentiment_analysis.get_total_score() # get all scores as list type.
 
+positive_score = sentiment_analysis.get_positive_score() # get positive scores
+negative_score = sentiment_analysis.get_negative_score() # get negative scores
 ```
 
 ### Reference)
 1. https://github.com/theeluwin/lexrankr (Korean Lexrank)
+2. https://www.kaggle.com/c/sa-emotions/data# (English data supported)

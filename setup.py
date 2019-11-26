@@ -1,6 +1,4 @@
 import os
-import sys
-import warnings
 
 from setuptools import find_packages, setup
 
@@ -20,7 +18,7 @@ requirements = [
 
 setup(
     name="sentiment-analysis",
-    version="0.0.4",
+    version="0.0.5",
     license="MIT",
     author="Philip Kim",
     author_email="philip@mysterico.com",
@@ -31,9 +29,12 @@ setup(
     python_requires='>=3',
     package_data = {
         'data' : [
-            'my_model.h5'
+            'my_model.h5',
+            'my_model_en.h5'
             'test_docs.json',
-            'train_docs.json'
+            'train_docs.json',
+            'test_docs_en.json',
+            'train_docs_en.json',
         ]
     },
     long_description=long_description,
