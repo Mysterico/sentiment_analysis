@@ -13,12 +13,13 @@ requirements = [
     'lexrankr',
     'tensorflow',
     'numpy',
-    'pandas'
+    'pandas',
+    'nltk'
 ]
 
 setup(
     name="sentiment-analysis",
-    version="0.0.3",
+    version="0.0.4",
     license="MIT",
     author="Philip Kim",
     author_email="philip@mysterico.com",
