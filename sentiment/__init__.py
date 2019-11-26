@@ -6,27 +6,22 @@ import json
 import nltk
 
 from util.summarize import Summarize
-from lexrankr import LexRank
 
 okt = Okt()
-
-
-model = tf.keras.models.load_model("my_model.h5")
-model.summary()
 
 class SentimentAnalysis(object):
 
     def __init__(self, sentence):
         try:
-            if os.path.isfile('train_docs.json'):
-                with open('train_docs.json', encoding="utf-8") as f:
+            if os.path.isfile('../data/train_docs.json'):
+                with open('../data/train_docs.json', encoding="utf-8") as f:
                     self.train_docs = json.load(f)
                     self.tokens = [t for d in self.train_docs for t in d[0]]
                     self.text = nltk.Text(self.tokens, name='NMSC')
                     self.selected_words = [f[0] for f in self.text.vocab().most_common(300)]
 
             self.sentence = sentence
-            self.model = tf.keras.models.load_model("my_model.h5")
+            self.model = tf.keras.models.load_model("../data/my_model.h5")
         except Exception as e:
             print(e)
 
@@ -54,7 +49,10 @@ class SentimentAnalysis(object):
     def get_happiness_score(self):
         return self.prediction[5]
 
-    def analyze(self, text):
+    def get_total_score(self):
+        return self.prediction
+
+    def analyze(self):
 
         sadness_sum = 0
         anger_sum = 0
@@ -63,14 +61,14 @@ class SentimentAnalysis(object):
         embarrassed_sum = 0
         happiness_sum = 0
 
-        summarized_data = Summarize(text).summarize()
+        summarized_data = Summarize(self.sentence).summarize()
 
         for text in summarized_data:
             token = self.tokenize(text)
             tf = self.term_frequency(token)
             data = np.expand_dims(np.asarray(tf).astype('float32'), axis=0)
 
-            prediction = model.predict(data)[0]
+            prediction = self.model.predict(data)[0]
 
             sadness_sum += prediction[0]
             anger_sum += prediction[1]
@@ -79,5 +77,14 @@ class SentimentAnalysis(object):
             embarrassed_sum += prediction[4]
             happiness_sum += prediction[5]
 
-        self.prediction = [sadness_sum / 5, anger_sum / 5, anxiety_sum / 5, agony_sum / 5, embarrassed_sum / 5, happiness_sum / 5]
-        return self.prediction # # 0 >> 슬픔 1 >> 분노 2 >> 불안 3 >> 상처 4 >> 당황 5 >> 기쁨
+
+        total_sum = sadness_sum + anger_sum + anxiety_sum + agony_sum + embarrassed_sum + happiness_sum
+
+        self.prediction = [round(((sadness_sum / total_sum)) * 100, 2),
+                           round(((anger_sum / total_sum)) * 100, 2),
+                           round(((anxiety_sum / total_sum)) * 100, 2),
+                           round(((agony_sum / total_sum)) * 100, 2),
+                           round(((embarrassed_sum / total_sum)) * 100, 2),
+                           round(((happiness_sum / total_sum)) * 100, 2)]
+
+        # # 0 >> 슬픔 1 >> 분노 2 >> 불안 3 >> 상처 4 >> 당황 5 >> 기쁨

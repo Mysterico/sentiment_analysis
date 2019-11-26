@@ -1,4 +1,5 @@
 import unittest
+from sentiment import SentimentAnalysis
 from util.summarize import Summarize
 from util.tokenize import Tokenize
 
@@ -25,6 +26,19 @@ class TestCase(unittest.TestCase):
         self.assertEqual(len(summary_under_200.summarize()), 2)
         self.assertEqual(len(summary_under_300.summarize()), 3)
         self.assertEqual(len(summary_under_400.summarize()), 4)
+
+    def test_get_sentiment_score(self):
+        text = "오늘은 정말 우울하고 슬픈 날이야. 이유는 잘 모르겠어. 원인은 과연 나에게 있는 것일까? 아니면 다른 이에게 있는 것일까? 나는 도저히 모르겠다. 이 상황을 타개할 수 있는 방법은 없는 걸까? 항상 우울해지는 것만 같다."
+        analyzedResult = SentimentAnalysis(text)
+        analyzedResult.analyze()
+
+        print(analyzedResult.get_sadness_score())
+        print(analyzedResult.get_anger_score())
+        print(analyzedResult.get_anxiety_score())
+        print(analyzedResult.get_agony_score())
+        print(analyzedResult.get_embarrassed_score())
+        print(analyzedResult.get_happiness_score())
+        print(analyzedResult.get_total_score())
 
 if __name__ == '__main__':
     unittest.main()

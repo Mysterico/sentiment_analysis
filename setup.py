@@ -12,18 +12,13 @@ requirements = [
     'konlpy',
     'lexrankr',
     'tensorflow',
+    'numpy',
+    'pandas'
 ]
-
-# if os.name == "nt":
-#     warnings.warn("See http://konlpy.org/en/v0.4.4/install/#id2 to properly install konlpy.", RuntimeWarning)
-# elif sys.version_info < (3, ):
-#     requirements.append('jpype1')
-# else:
-#     requirements.append('jpype1-py3')
 
 setup(
     name="sentiment-analysis",
-    version="0.0.2",
+    version="0.0.3",
     license="MIT",
     author="Philip Kim",
     author_email="philip@mysterico.com",
@@ -34,7 +29,9 @@ setup(
     python_requires='>=3',
     package_data = {
         'data' : [
-            'sentiment_data_ko.xlsx'
+            'my_model.h5'
+            'test_docs.json',
+            'train_docs.json'
         ]
     },
     long_description=long_description,
