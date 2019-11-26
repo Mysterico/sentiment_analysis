@@ -28,7 +28,7 @@ class TestCase(unittest.TestCase):
         self.assertEqual(len(summary_under_400.summarize()), 4)
 
     def test_get_sentiment_score(self):
-        text = "오늘은 정말 우울하고 슬픈 날이야. 이유는 잘 모르겠어. 원인은 과연 나에게 있는 것일까? 아니면 다른 이에게 있는 것일까? 나는 도저히 모르겠다. 이 상황을 타개할 수 있는 방법은 없는 걸까? 항상 우울해지는 것만 같다."
+        text = "너무나 우울해서 미칠 것만 같다. 나는 왜 이러는 것일까"
         analyzedResult = SentimentAnalysis(text)
         analyzedResult.analyze()
 
@@ -39,6 +39,26 @@ class TestCase(unittest.TestCase):
         print(analyzedResult.get_embarrassed_score())
         print(analyzedResult.get_happiness_score())
         print(analyzedResult.get_total_score())
+
+        print(analyzedResult.get_positive_score())
+        print(analyzedResult.get_negative_score())
+
+    def test_get_sentiment_socre_english(self):
+        text = "Happiness is unreachable thing. Because it's impossible."
+        analyzedResult = SentimentAnalysis(text)
+        analyzedResult.analyze()
+
+        print(analyzedResult.get_sadness_score())
+        print(analyzedResult.get_anger_score())
+        print(analyzedResult.get_anxiety_score())
+        # print(analyzedResult.get_agony_score())
+        print(analyzedResult.get_embarrassed_score())
+        print(analyzedResult.get_happiness_score())
+        print(analyzedResult.get_total_score())
+
+        print(analyzedResult.get_positive_score())
+        print(analyzedResult.get_neutral_score())
+        print(analyzedResult.get_negative_score())
 
 if __name__ == '__main__':
     unittest.main()

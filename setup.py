@@ -14,7 +14,8 @@ requirements = [
     'tensorflow',
     'numpy',
     'pandas',
-    'nltk'
+    'nltk',
+    'langdetect'
 ]
 
 setup(
