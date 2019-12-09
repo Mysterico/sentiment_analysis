@@ -9,6 +9,9 @@ Lexrank 알고리즘이 사용되었습니다.
 
 이 라이브러리는 한국어와 영어를 제외한 다른 언어를 지원하지 않습니다. 추후, 일어, 중어 및 다른 언어들에 대한 지원을 할 예정입니다.
 
+
+## English Version
+
 This library is made for analyzing sentiment from a single sentence or paragraph. It uses Keras and nltk.
 In addition, It also uses LexRank algorithm to summarize a paragraph.
 
