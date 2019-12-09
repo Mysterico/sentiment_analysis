@@ -5,7 +5,7 @@ Lexrank 알고리즘이 사용되었습니다.
 
 해당 라이브러리는 감성을 다음 6가지의 종류로 분류합니다. (우울함, 분노, 불안, 고통, 당황, 행복)
 
-※ 주의)
+### 주의 📢
 
 이 라이브러리는 한국어와 영어를 제외한 다른 언어를 지원하지 않습니다. 추후, 일어, 중어 및 다른 언어들에 대한 지원을 할 예정입니다.
 
@@ -14,11 +14,11 @@ In addition, It also uses LexRank algorithm to summarize a paragraph.
 
 It classifies sentiment as 6 emotions (Depression, Anger, Anxiety, Agony, Embarrassed, Happiness)
 
-※ Caution)
+### Caution 📢
 
 This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes Japanese, Chinese, and etc. 
 
-Getting agony score won't work, if detected language is English. Be careful.
+If detected language is English, getting agony score will `NOT` work.
 
 ## Installation
 `pip install sentiment-analysis`
