@@ -22,6 +22,7 @@ It classifies sentiment as 6 emotions (Depression, Anger, Anxiety, Agony, Embarr
 This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes Japanese, Chinese, and etc. 
 
 If detected language is English, getting agony score will `NOT` work.
+In addition, LexRank algorithm is not applied in English version. Please consider it.
 
 ## Installation
 `pip install sentiment-analysis`
