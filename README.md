@@ -1,3 +1,7 @@
+# This project has been **deprecated**.
+
+> Sorry, everyone. We will open more improved analyzer, later! Thank you.
+
 # Sentiment_analysis (감성 분석)
 일기 및 일상 평문 텍스트에서, 글쓴이의 감정을 유추하기 위해서 만들어진 라이브러리입니다. 감성 분석을 위해서,
 Keras 및 nltk가 사용되었습니다. 또한, 텍스트의 길이에 따라서 문장을 요약하고 이에 대한 감성을 각각 분석을 하기 위해
@@ -19,7 +23,7 @@ It classifies sentiment as 6 emotions (Depression, Anger, Anxiety, Agony, Embarr
 
 ### Caution 📢
 
-This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes Japanese, Chinese, and etc. 
+This library does not support other languages except English and Korean yet. However, we have a plan to support other languages includes Japanese, Chinese, and etc.
 
 If detected language is English, getting agony score will `NOT` work.
 In addition, LexRank algorithm is not applied in English version. Please consider it.
